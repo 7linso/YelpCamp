@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h1 class="text-center">Add a New Spot!</h1>
+        <div class="col-6 offset-3">
+            <form method="POST" action="/campgrounds" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class='form-label' for="title">Title</label>
+                    <input class='form-control' type="text" name="campground[title]" id="'title"
+                        placeholder="Santana Medley..." required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 mb-3">
+                        <label class='form-label' for="location">Location</label>
+                        <input class='form-control' type="text" name="campground[location]" id="'location"
+                            placeholder="Los Angeles, California ..." required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class='form-label' for="price">Price</label>
+                        <input class='form-control' type="text" name="campground[price]" id="'price"
+                            placeholder="0.00" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class='form-label' for="desc">Description</label>
+                    <textarea class='form-control' type="text" name="campground[desc]" id="'desc"
+                        required placeholder="Beautiful camp near the river is welcoming everyone..."></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class='form-label' for="image">Image URL</label>
+                    <input type="file" class='form-control' id="'image" name="image" multiple>
+                </div>
+                <!-- <div class="mb-3">
+                    <label class='form-label' for="image">Image URL</label>
+                    <input class='form-control' type="text" name="campground[image]" id="'image"
+                        placeholder="https://picsum.photos/400?random=0...." required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div> -->
+                <button class="btn btn-success mb-3">Add Campground</button>
+            </form>
+            <a href="/campgrounds">Click here to go back</a>
+        </div>
+    </div>
+
