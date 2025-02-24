@@ -32,7 +32,7 @@ const seedDB = async () => {
                 },
                 {
                     url: 'https://res.cloudinary.com/dnxrobolb/image/upload/v1740166820/yelp-camp/km2awljkswwj0gw4z63a.jpg',
-                    filename: 'km2awljkswwj0gw4z63a'
+                    filename: 'yelp-camp/km2awljkswwj0gw4z63a'
                 }
             ],
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vero quidem cumque dolores iusto saepe hic necessitatibus qui dignissimos excepturi nam, optio distinctio, inventore deserunt ipsa cup',
