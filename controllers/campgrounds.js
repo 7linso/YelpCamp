@@ -1,5 +1,5 @@
 const Campground = require('../models/campground')
-const {cloudinary} = require('../cloudinary')
+const { cloudinary } = require('../cloudinary')
 const maptilerClient = require("@maptiler/client");
 maptilerClient.config.apiKey = process.env.MAPTILER_API_KEY;
 
@@ -18,6 +18,7 @@ module.exports.showCampground = async (req, res) => {
         req.flash('error', 'This Campground no longer exists')
         return res.redirect('/campgrounds')
     }
+    console.log(campground.properties)
     res.render('campgrounds/show', { campground })
 }
 module.exports.editCampgroundForm = async (req, res) => {
@@ -49,7 +50,7 @@ module.exports.editCampground = async (req, res) => {
     campground.images.push(...imgs)
     await campground.save()
     if (req.body.deleteImages) {
-        for(let filename of req.body.deleteImages){
+        for (let filename of req.body.deleteImages) {
             await cloudinary.uploader.destroy(filename)
         }
         await campground.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } })

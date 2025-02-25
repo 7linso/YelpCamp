@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Campground = require('../models/campground')
 const cities = require('./cities')
-const {places, descriptors} = require('./seedHelpers')
+const { places, descriptors } = require('./seedHelpers')
 
 main().catch(err => console.log(err));
 
@@ -17,14 +17,18 @@ const seedDB = async () => {
     await Campground.deleteMany({});
     console.log("All campgrounds deleted");
 
-    for (let i = 0; i < 50; i++) {
-        const random1000 = Math.floor(Math.random() *1000)
+    for (let i = 0; i < 150; i++) {
+        const random1000 = Math.floor(Math.random() * 1000)
         const randomPrice = Math.floor(Math.random() * 100)
 
         const camp = new Campground({
-            author:'67b7523b2418b427fef73faf',
+            author: '67b7523b2418b427fef73faf',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
+            geometry: {
+                type: 'Point',
+                coordinates: [cities[random1000].longitude, cities[random1000].latitude ]
+            },
             images: [
                 {
                     url: 'https://res.cloudinary.com/dnxrobolb/image/upload/v1740167489/yelp-camp/ersc7774bab8nn7sosa6.webp',
@@ -42,7 +46,7 @@ const seedDB = async () => {
     }
 };
 
-seedDB().then(()=>{
+seedDB().then(() => {
     mongoose.connection.close()
     console.log('db closed')
 })
