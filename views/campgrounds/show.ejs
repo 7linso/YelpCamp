@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
+<div class="container">
     <div class="row my-3 mb-5">
         <div class="col-6 ">
 
@@ -16,7 +17,7 @@
                     <div class="carousel-inner">
                         <% for (let image of campground.images) {%>
                             <div class="carousel-item active">
-                                <img src="<%= image.url %>" class="card-img-top d-block" alt="...">
+                                <img src="<%= image.url %>" crossorigin="anonymous" class="card-img-top d-block" alt="...">
                             </div>
                         <% } %>
                     </div>
@@ -123,6 +124,6 @@
             </div>
         </div>
     </div>
-
+</div>
 
 <script src="/javascripts/showPageMap.js"></script>
